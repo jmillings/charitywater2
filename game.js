@@ -1,6 +1,60 @@
+// Milestone data: array of {score, title, fact}
+const milestones = [
+	{ score: 100, title: "First Splash!", fact: "You’ve cleaned your first 100 points worth of water! Every bit counts." },
+	{ score: 250, title: "Cleaner Streams", fact: "250 points! That’s like removing a bag of trash from a river." },
+	{ score: 500, title: "Halfway Hero", fact: "500 points! You’re halfway to a thousand. Rivers thank you!" },
+	{ score: 1000, title: "Water Warrior", fact: "1,000 points! That’s a huge impact. Clean water changes lives." },
+	{ score: 2000, title: "Champion of Clean", fact: "2,000 points! You’re a champion for clean water everywhere." }
+];
+
+let shownMilestones = new Set();
+
+function checkMilestones(score) {
+	for (const m of milestones) {
+		if (score >= m.score && !shownMilestones.has(m.score)) {
+			showMilestonePopup(m.title, m.fact);
+			shownMilestones.add(m.score);
+			break; // Only show one at a time
+		}
+	}
+}
+
+// Call this function whenever the score is updated
+function onScoreUpdate(newScore) {
+	// ...existing code for updating score UI...
+	checkMilestones(newScore);
+}
+
+// showMilestonePopup(title, fact) already exists in your HTML structure
+function showMilestonePopup(title, fact) {
+	const popup = document.getElementById('milestonePopup');
+	document.getElementById('milestoneTitle').textContent = title;
+	document.getElementById('milestoneFact').textContent = fact;
+	popup.classList.remove('hidden');
+}
+
+// Optionally, reset shownMilestones when game resets
+function resetMilestones() {
+	shownMilestones.clear();
+}
 /* Clean Stream Game */
 (function(){
 	const canvas = document.getElementById('gameCanvas');
+	// Audio elements
+	const audioCollect = document.getElementById('audioCollect');
+	const audioMiss = document.getElementById('audioMiss');
+	const audioWin = document.getElementById('audioWin');
+
+	function playSound(audio) {
+		if (!audio) return;
+		audio.currentTime = 0;
+		audio.play();
+	}
+
+	// Example usage in game logic:
+	// Call playSound(audioCollect) when player collects an item
+	// Call playSound(audioMiss) when player misses
+	// Call playSound(audioWin) when player wins
 	const ctx = canvas.getContext('2d');
 	const playBtn = document.getElementById('playBtn');
 	const aboutBtn = document.getElementById('aboutBtn');

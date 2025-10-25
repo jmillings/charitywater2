@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google Fonts: Montserrat for charity: water brand feel -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>Clean Stream - charity: water</title>
@@ -8,6 +10,10 @@
 	<link rel="preload" href="style.css" as="style" />
 </head>
 <body>
+	<!-- Audio elements for game feedback -->
+	<audio id="audioCollect" src="collect.mp3" preload="auto"></audio>
+	<audio id="audioMiss" src="miss.mp3" preload="auto"></audio>
+	<audio id="audioWin" src="win.mp3" preload="auto"></audio>
 	<div id="splash" class="screen active">
 		<div class="logo">charity:<span> water</span></div>
 		<h1 class="game-title">Clean Stream</h1>
