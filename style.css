@@ -1,6 +1,6 @@
 /* Base Reset */
 * { box-sizing: border-box; }
-body { margin:0; font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; background: linear-gradient(#1e3c72,#2a5298); color:#fff; -webkit-font-smoothing: antialiased; }
+body { margin:0; font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; background: url('https://thumbs.dreamstime.com/b/vibrant-pixel-art-depicts-serene-fjord-landscape-prairie-nestled-rolling-hills-vast-open-spaces-reimagined-364621349.jpg') center center/cover no-repeat; color:#fff; -webkit-font-smoothing: antialiased; min-height: 100vh; }
 button { cursor:pointer; font: inherit; }
 
 :root {
